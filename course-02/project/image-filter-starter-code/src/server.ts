@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
@@ -29,10 +29,11 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   /**************************************************************************** */
 
-  app.get('/filteredimage',async (req, res) => {
+  app.get('/filteredimage',async (req: Request, res: Response) => {
 
     // endpoint to filter an image from a public url.
-    let { image_url } = req.query;
+    
+    let { image_url }: {image_url: string} = req.query;
 
     //    1. validate the image_url query
     if (!image_url) {
@@ -43,7 +44,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     let filteredImage: string; //The variable to store the filter Image 
 
     //    2. call filterImageFromURL(image_url) to filter the image
-    await filterImageFromURL(image_url).then(temp_path => {
+    await filterImageFromURL(image_url).then(temp_path=> {
       filteredImage = temp_path;
     });
 
