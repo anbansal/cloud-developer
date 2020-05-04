@@ -9,7 +9,8 @@
   "dependencies": {
     "serverless-aws-documentation": "^1.1.0",
     "serverless-reqvalidator-plugin": "^1.0.3",
-    "source-map-support": "^0.5.19"
+    "source-map-support": "^0.5.19",
+    "uuid": "^8.0.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",
